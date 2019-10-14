@@ -504,7 +504,7 @@ describe('Async', () => {
 	describe('props sync test', () => {
 		it('should update options on componentWillReceiveProps', () => {
 			createControl({});
-			asyncInstance.componentWillReceiveProps({
+			asyncInstance.UNSAFE_componentWillReceiveProps({
 				options: [{
 					label: 'bar',
 					value: 'foo',
@@ -519,7 +519,7 @@ describe('Async', () => {
 			createControl(props);
 
 			const setStateStub = sinon.stub(asyncInstance, 'setState');
-			asyncInstance.componentWillReceiveProps(props);
+			asyncInstance.UNSAFE_componentWillReceiveProps(props);
 
 			expect(setStateStub, 'was not called');
 
